@@ -12,7 +12,7 @@ console.log(exampleInputObject.renderGroups[0].points["p1"]);
 
 root.render(
     <React.StrictMode>
-      <SVGImage inputObject={inputObject}/>
+      <SVGMorgrifier inputObject={inputObject}/>
     </React.StrictMode>
   );
 

@@ -112,11 +112,18 @@ export class SVGMorgrifier extends React.Component
 	{
 		const start = this.props.inputObject.renderGroups[0];
 		const end = this.props.inputObject.renderGroups[1];
+
 		function linerpGroups(start, end, linerpVal) {
 			let newGroup = {
 				id: "interpolatedGroup",
-				points: ""
+				style: start.style,
+				points: [],
+				beziers: start.beziers,
+				transform: start.transform
 			};
+			Object.keys(start.points).forEach((key) => {
+				newGroup.points[key] = linerpPoint(start.points[key], end.points[key], linerpVal);
+			});
 
 			return newGroup;
 		}
